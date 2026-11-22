@@ -1,0 +1,11 @@
+# Local KMap outputs and distribution archives
+/20[0-9][0-9]-[0-9][0-9]-[0-9][0-9]_*/
+/dist/
+*.img
+*.gmap/
+*.gpi
+*.pbf
+*.zip
+*.7z
+*.rar
+*.log
