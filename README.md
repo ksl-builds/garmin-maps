@@ -11,7 +11,7 @@
 1. Скачайте оба тома, **part1.rar** и **part2.rar**, со [страницы релиза][current-release] в одну папку.
 2. Откройте первый том в 7-Zip или WinRAR и извлеките **gravel-szfo.img**.
 3. Подключите комп по USB и скопируйте IMG в папку **Garmin**.
-4. В профиле занятий откройте **Навигация → Карта → Информация о карте** и включите **KMap**. [Руководство Edge 540](https://www8.garmin.com/manuals/webhelp/GUID-17DE938E-466A-4746-BDBF-7A6FC1B3A32C/EN-US/GUID-2ADCD0D5-D5CB-4C29-9ACB-EE8BA1FDCC64.html)
+4. В профиле занятий откройте **Навигация → Карта → Информация о карте** и включите добавленную карту СЗФО. Ищите строку `kmap 2026-11, northwestern-fed-district`. [Руководство Edge 540](https://www8.garmin.com/manuals/webhelp/GUID-17DE938E-466A-4746-BDBF-7A6FC1B3A32C/EN-US/GUID-2ADCD0D5-D5CB-4C29-9ACB-EE8BA1FDCC64.html)
 
 При обновлении сохраните предыдущий IMG на компьютере и замените его на Edge.
 
