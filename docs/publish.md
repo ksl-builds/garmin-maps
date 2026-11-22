@@ -4,7 +4,7 @@ GitHub Releases принимает файлы размером меньше **2 
 
 ## Релиз 22 ноября
 
-1. Укажите в ссылке `[current-release]` внизу README адрес `https://github.com/OWNER/REPO/releases/tag/szfo-2026-11-22` и отправьте ветку `main` в публичный репозиторий GitHub.
+1. Отправьте ветку `main` в репозиторий **ksl-builds/garmin-maps**. Строка `[current-release]` в README должна указывать на страницу выпуска. [Репозиторий GitHub](https://github.com/ksl-builds/garmin-maps)
 2. Откройте **Releases → Draft a new release**. Создайте тег `szfo-2026-11-22` от `main` и вставьте [готовое описание](releases/szfo-2026-11-22.md).
 3. Приложите все пять файлов из подготовленной папки `2026.11.22/github`.
 4. Опубликуйте релиз и проверьте, что оба тома скачиваются без входа в GitHub. [Создание релиза на GitHub](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release)

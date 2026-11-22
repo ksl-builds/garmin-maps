@@ -35,4 +35,4 @@
 
 © OpenStreetMap contributors, ODbL. [Данные и атрибуция](docs/build.md#источники)
 
-[current-release]: docs/releases/szfo-2026-11-22.md
+[current-release]: https://github.com/ksl-builds/garmin-maps/releases/tag/szfo-2026-11-22
