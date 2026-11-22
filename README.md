@@ -6,12 +6,6 @@
 
 [![Легенда карты с цветами дорог, грунтовок, троп, леса и воды](docs/images/legend.png)](docs/images/legend.png)
 
-| Дороги и тропы · 80 м | Курс на карте · 50 м |
-| :---: | :---: |
-| <img src="docs/images/edge-540-80m.jpg" width="300" alt="Garmin Edge 540 с дорогами, тропами, лесом и водоёмами на масштабе 80 м"> | <img src="docs/images/edge-540-50m-course.jpg" width="300" alt="Garmin Edge 540 с синей линией курса и стрелками на масштабе 50 м"> |
-
-*На фото выпуск от 8 ноября на Edge 540. Синяя линия — активный курс Garmin. [Превью текущей сборки](docs/images/map-preview.png).*
-
 ## Установка
 
 1. Скачайте оба тома, **part1.rar** и **part2.rar**, со [страницы релиза][current-release] в одну папку.
