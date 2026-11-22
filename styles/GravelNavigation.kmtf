@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<garmin_map_theme>
+  <metadata>
+    <title>Gravel Navigation Pro</title>
+    <description>Active course line for Gravel Navigation Pro</description>
+    <category>0</category>
+  </metadata>
+  <stylelist>
+    <style field="MPM_ACTV_CRS_CLR" scale="3.00" border="2.00">
+      <color>
+        <primary day="#FFFF00FF" night="#FFFF00FF"/>
+        <secondary day="#FFFF00FF" night="#FFFF00FF"/>
+      </color>
+    </style>
+  </stylelist>
+</garmin_map_theme>

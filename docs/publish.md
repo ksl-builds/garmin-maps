@@ -5,9 +5,9 @@
 ## Релиз 22 ноября
 
 1. В публичном проекте GitLab включите **Package registry**. [Доступ к пакетам](https://docs.gitlab.com/user/packages/package_registry/#package-registry-visibility-permissions)
-2. Загрузите IMG и исходный срез OSM командой ниже. Проверьте, что прямые ссылки открываются без входа.
-3. В верхней строке README поставьте ссылку **Скачать карту** на `$mapUrl`. Отправьте в GitLab коммит с README, изображениями, стилем и настройками.
-4. В **Deploy → Releases** создайте релиз с тегом **szfo-2026-11-22** от этого коммита. Возьмите [готовое описание](releases/szfo-2026-11-22.md), добавьте `$mapUrl` как файл **gravel-szfo.img**, а `$sourceUrl` укажите в источниках. [Файлы релиза](https://docs.gitlab.com/user/project/releases/release_fields/#use-a-generic-package-for-attaching-binaries)
+2. Загрузите IMG, тему Edge и исходный срез OSM командами ниже. Проверьте, что прямые ссылки открываются без входа.
+3. В верхней строке README поставьте ссылку **Скачать карту** на `$mapUrl`, а в разделе о линии курса укажите `$themeUrl` для прямой загрузки темы. Отправьте коммит в GitLab.
+4. В **Deploy → Releases** создайте релиз с тегом **szfo-2026-11-22** от этого коммита. Возьмите [готовое описание](releases/szfo-2026-11-22.md). Добавьте `$mapUrl` как **gravel-szfo.img**, `$themeUrl` как **GravelNavigation.kmtf (опционально)** и укажите `$sourceUrl` в источниках. [Файлы релиза](https://docs.gitlab.com/user/project/releases/release_fields/#use-a-generic-package-for-attaching-binaries)
 
 ### Загрузка файлов
 
@@ -18,19 +18,26 @@ $projectId = '<ID проекта>'
 $assets = '<путь к папке 2026.11.22>'
 $packageUrl = "https://gitlab.com/api/v4/projects/$projectId/packages/generic/garmin-szfo/2026.11.22"
 $mapFile = Join-Path $assets 'gravel-szfo.img'
+$themeName = 'GravelNavigation.kmtf'
+$themeFile = Join-Path $assets $themeName
 $sourceName = 'northwestern-fed-district-261121.osm.pbf'
 $sourceFile = Join-Path (Join-Path $assets 'sources') $sourceName
 $mapUrl = "$packageUrl/gravel-szfo.img"
+$themeUrl = "$packageUrl/$themeName"
 $sourceUrl = "$packageUrl/$sourceName"
 $header = "DEPLOY-TOKEN: $env:KMAP_PACKAGE_TOKEN"
 
 curl.exe --fail-with-body --header $header --upload-file $mapFile $mapUrl
 if ($LASTEXITCODE -ne 0) { throw 'Ошибка загрузки IMG' }
 
+curl.exe --fail-with-body --header $header --upload-file $themeFile $themeUrl
+if ($LASTEXITCODE -ne 0) { throw 'Ошибка загрузки темы Edge' }
+
 curl.exe --fail-with-body --header $header --upload-file $sourceFile $sourceUrl
 if ($LASTEXITCODE -ne 0) { throw 'Ошибка загрузки среза OSM' }
 
 $mapUrl
+$themeUrl
 $sourceUrl
 ~~~
 
@@ -40,5 +47,6 @@ $sourceUrl
 
 - **В лесу** грунтовка и тропа различимы у развилки.
 - **В городе** видно нужное ответвление, когда поверх улиц показан курс.
+- **С темой Edge** проверьте цвет и читаемость линии при движении по сохранённому курсу.
 
 Смотрите на экран Edge в масштабе, которым пользуетесь в поездке.
