@@ -4,6 +4,8 @@
 
 **[Сборка от 22 ноября 2026][current-release]** · 2,24 ГБ в двух томах RAR
 
+[![Легенда карты с цветами дорог, грунтовок, троп, леса и воды](docs/images/legend.png)](docs/images/legend.png)
+
 | Дороги и тропы · 80 м | Курс на карте · 50 м |
 | :---: | :---: |
 | <img src="docs/images/edge-540-80m.jpg" width="300" alt="Garmin Edge 540 с дорогами, тропами, лесом и водоёмами на масштабе 80 м"> | <img src="docs/images/edge-540-50m-course.jpg" width="300" alt="Garmin Edge 540 с синей линией курса и стрелками на масштабе 50 м"> |
@@ -31,7 +33,7 @@
 
 Лес и вода помогают сориентироваться. Часть значков скрыта, горизонтали отключены. Поиск, маршрутизация и данные высот сохранены.
 
-[Легенда с цветами](docs/images/legend.png) · [Как собрана карта](docs/build.md) · [Публикация](docs/publish.md)
+[Как собрана карта](docs/build.md) · [Публикация](docs/publish.md)
 
 © OpenStreetMap contributors, ODbL. [Данные и атрибуция](docs/build.md#источники)
 
