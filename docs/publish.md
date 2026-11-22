@@ -1,47 +1,20 @@
-# Публикация карты одним файлом
+# Публикация карты на GitHub
 
-Проект **garmin-gravel-szfo** на GitLab.com. Текущая сборка от 22 ноября 2026 года весит **2,53 ГБ**. Файл **gravel-szfo.img** публикуется в **Generic Package Registry**, где лимит одного файла — 5 ГБ. [Лимиты GitLab.com](https://docs.gitlab.com/user/gitlab_com/#package-registry-limits)
+GitHub Releases принимает файлы размером меньше **2 ГиБ** каждый. IMG от 22 ноября 2026 года упакован в два тома RAR. [Лимиты GitHub Releases](https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases#storage-and-bandwidth-quotas)
 
 ## Релиз 22 ноября
 
-1. В публичном проекте GitLab включите **Package registry**. [Доступ к пакетам](https://docs.gitlab.com/user/packages/package_registry/#package-registry-visibility-permissions)
-2. Загрузите IMG, тему Edge и исходный срез OSM командами ниже. Проверьте, что прямые ссылки открываются без входа.
-3. В верхней строке README поставьте ссылку **Скачать карту** на `$mapUrl`, а в разделе о линии курса укажите `$themeUrl` для прямой загрузки темы. Отправьте коммит в GitLab.
-4. В **Deploy → Releases** создайте релиз с тегом **szfo-2026-11-22** от этого коммита. Возьмите [готовое описание](releases/szfo-2026-11-22.md). Добавьте `$mapUrl` как **gravel-szfo.img**, `$themeUrl` как **GravelNavigation.kmtf (опционально)** и укажите `$sourceUrl` в источниках. [Файлы релиза](https://docs.gitlab.com/user/project/releases/release_fields/#use-a-generic-package-for-attaching-binaries)
+1. Укажите в ссылке `[current-release]` внизу README адрес `https://github.com/OWNER/REPO/releases/tag/szfo-2026-11-22` и отправьте ветку `main` в публичный репозиторий GitHub.
+2. Откройте **Releases → Draft a new release**. Создайте тег `szfo-2026-11-22` от `main` и вставьте [готовое описание](releases/szfo-2026-11-22.md).
+3. Приложите все пять файлов из подготовленной папки `2026.11.22/github`.
+4. Опубликуйте релиз и проверьте, что оба тома скачиваются без входа в GitHub. [Создание релиза на GitHub](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release)
 
-### Загрузка файлов
+### Файлы релиза
 
-В PowerShell укажите числовой ID проекта и путь к подготовленной папке `2026.11.22`. Передайте deploy token с правом **write_package_registry** через переменную `KMAP_PACKAGE_TOKEN`.
-
-~~~powershell
-$projectId = '<ID проекта>'
-$assets = '<путь к папке 2026.11.22>'
-$packageUrl = "https://gitlab.com/api/v4/projects/$projectId/packages/generic/garmin-szfo/2026.11.22"
-$mapFile = Join-Path $assets 'gravel-szfo.img'
-$themeName = 'GravelNavigation.kmtf'
-$themeFile = Join-Path $assets $themeName
-$sourceName = 'northwestern-fed-district-261121.osm.pbf'
-$sourceFile = Join-Path (Join-Path $assets 'sources') $sourceName
-$mapUrl = "$packageUrl/gravel-szfo.img"
-$themeUrl = "$packageUrl/$themeName"
-$sourceUrl = "$packageUrl/$sourceName"
-$header = "DEPLOY-TOKEN: $env:KMAP_PACKAGE_TOKEN"
-
-curl.exe --fail-with-body --header $header --upload-file $mapFile $mapUrl
-if ($LASTEXITCODE -ne 0) { throw 'Ошибка загрузки IMG' }
-
-curl.exe --fail-with-body --header $header --upload-file $themeFile $themeUrl
-if ($LASTEXITCODE -ne 0) { throw 'Ошибка загрузки темы Edge' }
-
-curl.exe --fail-with-body --header $header --upload-file $sourceFile $sourceUrl
-if ($LASTEXITCODE -ne 0) { throw 'Ошибка загрузки среза OSM' }
-
-$mapUrl
-$themeUrl
-$sourceUrl
-~~~
-
-[Загрузка в GitLab Generic Packages](https://docs.gitlab.com/user/packages/generic_packages/#publish-a-single-file) · [SHA‑256 IMG](releases/szfo-2026-11-22.md#проверка-файла)
+- `kmap-szfo-gravel-2026-11-22.part1.rar` и `kmap-szfo-gravel-2026-11-22.part2.rar` — тома карты.
+- `GravelNavigation.kmtf` — опциональная тема линии курса.
+- `northwestern-fed-district-261121.osm.pbf` — исходный срез OSM.
+- `SHA256SUMS.txt` — контрольные суммы файлов. [SHA-256 извлечённого IMG](releases/szfo-2026-11-22.md#проверка-файла)
 
 ## Проверка перед обновлением карты
 
